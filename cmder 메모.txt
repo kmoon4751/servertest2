@@ -1,0 +1,109 @@
+형상관리(버전관리) : 형상항목의 생명주기(생성~(수정)~소멸)
+	형상항목 : 형상관리 대상 ex)소스, 이미지, 동영상파일, 
+git / github
+
+//상위폴더로 이동
+cd..
+
+1) 폴더를 만들면서 그 폴더를 저장소로 생성
+// aaa라고 하는 폴더를 생성함과 동시에 그 폴더를 로컬저장소로 생성
+git init aaa
+
+// 로컬저장소와 함께 aaa라는 폴더도 함께 제거
+rm -rf aaa
+
+2) 폴더를 생성 후 그 폴더를 저장소로 생성
+mkdir aaa -> cd aaa -> git init
+
+
+// git에 대한 상태를 확인
+git status
+-> No commits yet : commits 한게 없고
+-> nothing to commit : commits 할 것도 없다.
+
+
+// test1.txt 이라는 파일을 생성 touch : 생성 / test1 : 파일 이름 / .txt : 확장자
+touch test1.txt
+touch -> 파일만 생성된 상태(unstaged(무대 대기상태)이면서 untracted(처음 생성)인 상태)
+unstaged -> 한번도 커밋을 하지 않은 상태. 추적되지 않는 상태.
+
+// test1에 내용 인풋 (내용 1을 넣기)
+echo 1 >> test1.txt
+
+// test1.txt 내용 보기
+cat test1.txt
+
+// unstaged상태인 test1 파일을 staged 상태(무대에 올라감)로 변환
+git add test1.txt
+
+// commit : 사진을 찍는다. -m : 메모 
+git commit -m '초기버전'
+
+// 지금까지의 기록 
+git log
+
+// commit을 하기 위해서
+git add . (=git add test1.txt test2.txt)
+
+//상태를 add 하기 전으로 다시 되돌리기 
+git restore --staged test1.txt test2.txt
+
+//현재폴더를 기준으로 탐색기 실행 (폴더가 열린다)
+start .
+
+// origin(깃)에 추가. 원격저장소에 업로드
+git push origin
+
+// 원격저장소에 있는 파일을 로컬로 복제해오기.
+git clone 원격저장소주소
+
+//
+git remote -v
+
+//
+git push -u origin main
+
+//비주얼스튜디오 실행
+code .
+
+
+
+1. 
+	npm install --global expo-cli
+	npm root -g : 글로벌 모듈이 설치되는 위치
+	npm list -g : 글로벌 모듈 목록보기
+ 	npm uninstall -g 패키지 이름
+
+2. 프로젝트 생성
+	expo init 프로젝트 명
+
+3. 프로젝트 실행 
+	npm start
+
+4. 프로젝트 생성~실행
+	npx create-expo-app (my-first-app) : 프로젝트 명
+	cd my-first-app
+	npx expo install react-dom react-native-web @expo/webpack-config : 3가지 라이브러리 실행
+	npx expo start
+
+5. 프로젝트 제거
+	rm -rf my-first-app
+
+
+
+
+
+목록보기 ls -al
+디렉토리 변경: cd 경로
+디렉토리 생성: md 디렉토리명
+파일/디렉토리 삭제: rm -rf파일 or 디렉토리
+화면 클리어: cls
+텍스트 파일 보기 : cat
+텍스트 파일 간단히 만들기 : echo> 파일명
+ 기존 텍스트 파일에 내용추가 : echo>> 파일명
+파일 복사: cp원본 복사본
+파일 이동: mv대상 위치
+현재 위치 :pwd
+/루트(가장상위)	./현재디렉토리	../상위디렉토리
+vim
+
